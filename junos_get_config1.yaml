@@ -1,6 +1,5 @@
 ---
 - name: Examples of juniper_junos_command
-  hosts: junos-all
   connection: local
   gather_facts: no
   roles:
