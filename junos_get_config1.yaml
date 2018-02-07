@@ -6,8 +6,8 @@
   gather_facts: no
 
   tasks:
-  - name: get config
-    junos_get_config:
-      host: "{{ inventory_hostname }}"
-      format: xml
-      dest: "{{ inventory_hostname }}.xml"
+  - junos_get_config:
+   host: "{{ inventory_hostname }}"
+   dest: "{{ inventory_hostname }}.xml"
+   format: xml
+   options: {inherit: inherit, groups: groups}
