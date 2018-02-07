@@ -1,24 +1,13 @@
 ---
-- name: Get facts
-  hosts: junos-ssh
+- name: Get Device Facts
+  hosts: all
+  roles:
   connection: local
   gather_facts: no
-  roles:
-    - Juniper.junos
-  vars_prompt:
-    - name: ADMUSER
-      prompt: Username
-      private: no
-    - name: ADMPASS
-      prompt: password
-      private: yes
+
   tasks:
-    - name: Get junos facts
-      junos_get_facts:
-        host: "{{ inventory_hostname }}"
-        user: "{{ ADMUSER }}"
-        passwd: "{{ ADMPASS }}"
-      register: junos
-    - name: Print facts
-      debug:
-        var: junos
+  - name: Retrieve information from devices running Junos OS
+    junos_facts:
+      host={{ inventory_hostname }}
+      port={{ ansible_ssh_port }}
+    register: junos
