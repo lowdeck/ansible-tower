@@ -1,6 +1,7 @@
 ---
 - name: Examples of juniper_junos_command
   connection: local
+  hosts: all
   gather_facts: no
   roles:
     - Juniper.junos
