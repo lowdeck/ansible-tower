@@ -7,7 +7,7 @@
 
   tasks:
   - junos_get_config:
-   host: "{{ inventory_hostname }}"
-   dest: "{{ inventory_hostname }}.xml"
-   format: xml
-   options: {inherit: inherit, groups: groups}
+     host: "{{ inventory_hostname }}"
+     dest: "{{ inventory_hostname }}.xml"
+     format: xml
+     options: {inherit: inherit, groups: groups}
