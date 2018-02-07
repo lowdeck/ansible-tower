@@ -8,6 +8,6 @@
   tasks:
   - name: get config
     junos_get_config:
-      host={{ inventory_hostname }}
+      host: "{{ inventory_hostname }}"
       format: xml
       dest: "{{ inventory_hostname }}.xml"
