@@ -6,8 +6,7 @@
   gather_facts: no
 
   tasks:
-  - name: Retrieve information from devices running Junos OS
-    junos_get_config:
+  - junos_get_config:
       host: "{{ inventory_hostname }}"
       dest: "{{ inventory_hostname }}.xml"
       format: xml
