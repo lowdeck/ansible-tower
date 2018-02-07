@@ -1,0 +1,13 @@
+---
+- name: Get Device config
+  hosts: all
+  roles:
+  connection: local
+  gather_facts: no
+
+  tasks:
+  - name: get config
+    junos_get_config:
+      host={{ inventory_hostname }}
+      port={{ ansible_ssh_port }}
+      register: junos
