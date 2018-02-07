@@ -9,5 +9,5 @@
   - name: get config
     junos_get_config:
       host={{ inventory_hostname }}
-      port={{ ansible_ssh_port }}
-      register: junos
+      format: xml
+      dest: "{{ inventory_hostname }}.xml"
