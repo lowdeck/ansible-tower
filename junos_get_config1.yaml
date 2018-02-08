@@ -5,7 +5,9 @@
   gather_facts: no
   roles:
     - Juniper.junos
-
+  junos_netconf:
+    listens_on: 22
+    state: present
   tasks:
     - name: Execute single "show version" command.
       juniper_junos_command:
