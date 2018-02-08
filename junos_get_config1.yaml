@@ -34,7 +34,7 @@
         commands:
           - "show route"
           - "show lldp neighbors"
-        format: json
+        format: xml
 
     - name: show route with XML output - show version with JSON output
       juniper_junos_command:
@@ -42,7 +42,7 @@
           - "show route"
           - "show version"
         formats:
-          - "json"
+          - "xml"
           - "json"
 
     - name: save outputs in dest_dir
@@ -70,7 +70,7 @@
           - "show route"
           - "show version"
         formats:
-          - "json"
+          - "xml"
           - "json"
         dest_dir: "/tmp/outputs/"
         return_output: false
