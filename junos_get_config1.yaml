@@ -25,6 +25,8 @@
       register: response
 
     - name: Print the command output of each.
+      delegate: 10.194.0.15
+      local_action: copy content="{{ response.results }}" dest="/tmp/{{ inventory_hostname }}.commands.output""
       debug:
         var: item.stdout
       with_items: "{{ response.results }}"
