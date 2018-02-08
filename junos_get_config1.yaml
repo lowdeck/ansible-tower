@@ -29,13 +29,6 @@
         var: item.stdout
       with_items: "{{ response.results }}"
 
-    - name: Two commands with XML output.
-      juniper_junos_command:
-        commands:
-          - "show route"
-          - "show lldp neighbors"
-        format: xml
-
     - name: show route with XML output - show version with JSON output
       juniper_junos_command:
         commands:
