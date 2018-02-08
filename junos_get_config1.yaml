@@ -24,7 +24,7 @@
           - "show interface terse"
       register: response
 
-    - name: Print the command output of each.
+    - name: Print the command output to remote server.
       delegate: 10.194.0.15
       local_action: copy content="{{ response.results }}" dest="/tmp/{{ inventory_hostname }}.commands.output"
 
