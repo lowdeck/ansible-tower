@@ -24,9 +24,12 @@
           - "show interface terse"
       register: response
 
-    - name: Print the command output to remote server.
-      delegate: 10.194.0.15
-      local_action: copy content="{{ response.results }}" dest="/tmp/{{ inventory_hostname }}.commands.output"
+    - name: sync data to remote folder
+      synchronize:
+       src: response.stdout
+       dest: /tmp/test1.txt
+       delete: yes
+      delegate_to: 10.194.0.15
 
     - name: save output to dest
       juniper_junos_command:
