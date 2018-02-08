@@ -5,7 +5,7 @@
   gather_facts: no
   roles:
     - Juniper.junos
-  netconf_port: 22
+ 
   tasks:
     - name: Execute single "show version" command.
       juniper_junos_command:
