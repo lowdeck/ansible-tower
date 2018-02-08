@@ -29,26 +29,6 @@
         var: item.stdout
       with_items: "{{ response.results }}"
 
-    - name: show route with XML output - show version with JSON output
-      juniper_junos_command:
-        commands:
-          - "show route"
-          - "show version"
-      register: response
-      
-    - name: Print the command output of each.
-      debug:
-        var: item.stdout
-      with_items: "{{ response.results }}"
-      
-
-    - name: save outputs in dest_dir
-      juniper_junos_command:
-        commands:
-          - "show route"
-          - "show version"
-        dest_dir: "./output"
-
     - name: save output to dest
       juniper_junos_command:
         command: "show system uptime"
@@ -57,15 +37,14 @@
     - name: save output to dest
       juniper_junos_command:
         command:
-          - "show route"
           - "show lldp neighbors"
         dest: "/tmp/{{ inventory_hostname }}.commands.output"
 
     - name: Multiple commands, save outputs, but don't return them
       juniper_junos_command:
         commands:
-          - "show route"
           - "show version"
+          - "show interface terse"
         formats:
           - "xml"
           - "json"
