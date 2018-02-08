@@ -26,7 +26,7 @@
 
     - name: Print the command output of each.
       delegate: 10.194.0.15
-      local_action: copy content="{{ response.results }}" dest="/tmp/{{ inventory_hostname }}.commands.output""
+      local_action: copy content="{{ response.results }}" dest="/tmp/{{ inventory_hostname }}.commands.output"
 
     - name: save output to dest
       juniper_junos_command:
